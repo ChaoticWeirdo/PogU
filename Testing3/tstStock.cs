@@ -1,6 +1,6 @@
-﻿using System;
-using ClassLibrary;
+﻿using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace Testing3
 {
@@ -33,7 +33,7 @@ namespace Testing3
             //create an instance of the class we want to create
             clsStock AnStock = new clsStock();
             //create some test data to assign to the property
-           Int32 TestData = 1;
+            Int32 TestData = 1;
             //assign the data to the property
             AnStock.ProductID = TestData;
             //test to see that the two values are the same
@@ -52,16 +52,16 @@ namespace Testing3
             Assert.AreEqual(AnStock.ProductName, TestData);
         }
         [TestMethod]
-        public void ProductTypePropertyOK()
+        public void GenderPropertyOK()
         {
             //create an instance of the class we want to create
             clsStock AnStock = new clsStock();
             //create some test data to assign to the property
-            string TestData = "jacket";
+            string TestData = "Male";
             //assign the data to the property
-            AnStock.ProductType = TestData;
+            AnStock.Gender = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnStock.ProductType, TestData);
+            Assert.AreEqual(AnStock.Gender, TestData);
         }
         [TestMethod]
         public void PricePropertyOK()
@@ -87,7 +87,18 @@ namespace Testing3
             //test to see that the two values are the same
             Assert.AreEqual(AnStock.DateAdded, TestData);
         }
-
+        [TestMethod]
+        public void StockQuantityPropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //create some test data to assign to the property
+            Int32 TestData = 1;
+            //assign the data to the property
+            AnStock.StockQuantity = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AnStock.StockQuantity, TestData);
+        }
     }
 
 }

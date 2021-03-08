@@ -6,9 +6,10 @@ namespace ClassLibrary
     {
         public bool LimitedStock { get; set; }
         public int ProductID { get; set; }
-        public int ProductName { get; set; }
-        public int ProductType { get; set; }
-        public int Price { get; set; }
         public DateTime DateAdded { get; set; }
+        public string ProductName { get; set; }
+        public string Gender { get; set; }
+        public decimal Price { get; set; }
+        public int StockQuantity { get; set; }
     }
 }
