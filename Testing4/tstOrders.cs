@@ -52,7 +52,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsOrders AnOrder = new clsOrders();
             //create some test data to assign to the property
-            int TestData = 1;
+            string TestData = "1a";
             //assign the data to the property
             AnOrder.ProductId = TestData;
             //test to see that the two values are the same
