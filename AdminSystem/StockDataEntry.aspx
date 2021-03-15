@@ -27,8 +27,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="txtOrderDate" runat="server" width="68px"></asp:TextBox>
         <br />
-        <asp:Label ID="IblQuantity" runat="server" Text="Stock Quantity"></asp:Label>
-&nbsp;
+        <asp:Label ID="IblQuantity" runat="server" Text="Quantity"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="txtQuantity" runat="server" Width="72px"></asp:TextBox>
         <br />
         <asp:Label ID="IblLimitedStocks" runat="server" Text="Limited Stock"></asp:Label>
