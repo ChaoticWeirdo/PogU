@@ -157,19 +157,36 @@ namespace ClassLibrary
 
         public bool Find(int staffID)
         {
-            //set the private data members to the test data value 
-            mStaffID = 21;
-            mDateOfBirth = Convert.ToDateTime("19/5/2014");
-            mStaffFirstName = "test name";
-            mStaffLastName = "test name";
-            mGender = "test Gender";
-            mNINo = "test NiNo";
-            mPhoneNo = "Test PhoneNo";
-            mAddress = "Test Address";
-            mPostCode = "Test Post Code";
-            mCitizen = true;
-            //always return true 
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            // add parameter for the StaffID to search for 
+            DB.AddParameter("@StaffID", StaffID);
+            //execute the stored procedure 
+            DB.Execute("sproc_tblStaff_FilterByStaffID");
+            //if one record is found (there should be either one or zero)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members 
+                mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
+                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
+                mStaffFirstName = Convert.ToString(DB.DataTable.Rows[0]["StaffFirstName"]);
+                mStaffLastName = Convert.ToString(DB.DataTable.Rows[0]["StaffLastName"]);
+                mGender = Convert.ToString(DB.DataTable.Rows[0]["Gender"]);
+                mNINo = Convert.ToString(DB.DataTable.Rows[0]["NINo"]);
+                mPhoneNo = Convert.ToString(DB.DataTable.Rows[0]["PhoneNo"]);
+                mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
+                mCitizen = Convert.ToBoolean(DB.DataTable.Rows[0]["Citizen"]);
+                //return that everything worked OK
+                return true;
+
+            }
+            //if mo record was found 
+            else
+            {
+                //return false indicating a problem
+                return false;
+            }
         }
     }
 }

@@ -169,7 +169,7 @@ namespace Testing1
             //Boolean variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method 
-            Int32 StaffID = 21;
+            Int32 StaffID = 2;
             //invoke the method 
             Found = AnStaff.Find(StaffID);
             //test to see if the result is true 
@@ -187,11 +187,11 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is )
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 2;
             //invoke the method 
             Found = AnStaff.Find(StaffID);
             //check the StaffID
-            if (AnStaff.StaffID != 21)
+            if (AnStaff.StaffID != 2)
             {
                 OK = false;
             }
@@ -210,7 +210,7 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is )
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 2;
             //invoke the method 
             Found = AnStaff.Find(StaffID);
             //check the Property
@@ -232,7 +232,7 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is )
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 2;
             //invoke the method 
             Found = AnStaff.Find(StaffID);
             //check the Property
@@ -254,7 +254,7 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is )
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 2;
             //invoke the method 
             Found = AnStaff.Find(StaffID);
             //check the Property
@@ -276,7 +276,7 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is )
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 2;
             //invoke the method 
             Found = AnStaff.Find(StaffID);
             //check the Property
@@ -298,7 +298,7 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is )
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 2;
             //invoke the method 
             Found = AnStaff.Find(StaffID);
             //check the Property
@@ -320,7 +320,7 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is )
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 2;
             //invoke the method 
             Found = AnStaff.Find(StaffID);
             //check the Property
@@ -341,7 +341,7 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is )
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 2;
             //invoke the method 
             Found = AnStaff.Find(StaffID);
             //check the Property
@@ -363,7 +363,7 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is )
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 2;
             //invoke the method 
             Found = AnStaff.Find(StaffID);
             //check the Property
@@ -385,7 +385,7 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is )
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 2;
             //invoke the method 
             Found = AnStaff.Find(StaffID);
             //check the Property
