@@ -17,16 +17,50 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of clsOrders
         clsOrders AnOrder = new clsOrders();
-        //capture the product id
-        AnOrder.ProductId = txtProductId.Text;
-        //capture the description
-        AnOrder.Description = txtDescription.Text;
+        //capture the Customer Id
+        string CustomerId = txtCustomerId.Text;
+        //capture the Product Id
+        string ProductId = txtProductId.Text;
+        //capture Order Date
+        string OrderDate = txtOrderDate.Text;
+        //capture the Description
+        string Description = txtDescription.Text;
+        //capture the Price
+        string Price = txtPrice.Text;
         //capture the status
-        AnOrder.Status = txtStatus.Text;
-        //Store the data in the session object
-        Session["AnOrder"] = AnOrder;
-        //navigate to the viewer page
-        Response.Redirect("OrdersViewer.aspx");
+        string Status = txtStatus.Text;
+        //capture Date Shipped
+        string DateShipped = txtDateShipped.Text;
+        //variabl to store any error messages
+        string Error = "";
+        //validate the data
+        Error = AnOrder.Valid(CustomerId, ProductId, OrderDate, Description, Price, Status, DateShipped);
+        if (Error == "")
+        {
+            //capture the Customer Id
+            AnOrder.CustomerId = Convert.ToInt32(CustomerId);
+            //capture the Product Id
+            AnOrder.ProductId = ProductId;
+            //capture the Order Date
+            AnOrder.OrderDate = Convert.ToDateTime(OrderDate);
+            //capture the Description
+            AnOrder.Description = Description;
+            //capture the Price
+            AnOrder.Price = Convert.ToDouble(Price);
+            //capture the Status
+            AnOrder.Status = Status;
+            //capture the Date Shipped
+            AnOrder.DateShipped = Convert.ToDateTime(DateShipped);
+            //Store the data in the session object
+            Session["AnOrder"] = AnOrder;
+            //navigate to the viewer page
+            Response.Redirect("OrdersViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
     }
 
     protected void txtProductId_TextChanged(object sender, EventArgs e)
