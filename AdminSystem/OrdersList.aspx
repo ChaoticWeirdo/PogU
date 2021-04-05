@@ -14,6 +14,11 @@
         <br />
         <br />
         <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
+    &nbsp;
+        <asp:Button ID="btnEdit" runat="server" OnClick="Button1_Click" Text="Edit" />
+        <br />
+        <br />
+        <asp:Label ID="lblError" runat="server"></asp:Label>
     </form>
 </body>
 </html>
