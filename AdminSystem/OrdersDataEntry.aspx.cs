@@ -47,14 +47,20 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnOrder.Description = Description;
             //capture the Price
             AnOrder.Price = Convert.ToDouble(Price);
+            //capture Paid
+            AnOrder.Paid = ChkPaid.Checked;
             //capture the Status
             AnOrder.Status = Status;
             //capture the Date Shipped
             AnOrder.DateShipped = Convert.ToDateTime(DateShipped);
-            //Store the data in the session object
-            Session["AnOrder"] = AnOrder;
-            //navigate to the viewer page
-            Response.Redirect("OrdersViewer.aspx");
+            //create a new instance of the order collection
+            clsOrderCollection OrderList = new clsOrderCollection();
+            //set the ThisOrder property
+            OrderList.ThisOrder = AnOrder;
+            //add the new record
+            OrderList.Add();
+            //redirect back to the list page
+            Response.Redirect("OrdersList.aspx");
         }
         else
         {
