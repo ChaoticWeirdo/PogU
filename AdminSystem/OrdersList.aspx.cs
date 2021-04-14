@@ -46,7 +46,7 @@ public partial class _1_List : System.Web.UI.Page
         Response.Redirect("OrdersDataEntry.aspx");
     }
 
-    protected void btnEdit_Click(object sender, EventArgs e)
+    protected void Button1_Click(object sender, EventArgs e)
     {
         //var to store the primary key value of the record to be edited
         Int32 OrderId;
@@ -63,7 +63,58 @@ public partial class _1_List : System.Web.UI.Page
         else //if no record has been selected
         {
             //display an error
-            lblError.Text = "Please select a record from the list to edit"
+            lblError.Text = "Please select a record from the list to edit";
         }
+    }
+
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        //var to store the primary key value of the record to be deleted
+        Int32 OrderId;
+        //if a record had been selected from the list
+        if (lstOrderList.SelectedIndex != 1)
+        {
+            //get the primary key value of the record to delete
+            OrderId = Convert.ToInt32(lstOrderList.SelectedValue);
+            //store the data in the session object
+            Session["OrderId"] = OrderId;
+            //redirecr to the delete page
+            Response.Redirect("OrdersConfirmDelete.aspx");
+        }
+        else //if no record has been selected
+        {
+            //display
+            lblError.Text = "Please select a record from the list to delete";
+        }
+    }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        //create an instance of the order collection
+        clsOrderCollection Orders = new clsOrderCollection();
+        Orders.ReportByProductId(txtFilter.Text);
+        lstOrderList.DataSource = Orders.OrderList;
+        //set the name of the primart key
+        lstOrderList.DataValueField = "OrderId";
+        //set the name of the field to display
+        lstOrderList.DataTextField = "ProductId";
+        //bind the data to the list
+        lstOrderList.DataBind();
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        //create an instance of the order collection
+        clsOrderCollection Orders = new clsOrderCollection();
+        Orders.ReportByProductId("");
+        //clear any existing filter to tidy up the interface
+        txtFilter.Text = "";
+        lstOrderList.DataSource = Orders.OrderList;
+        //set the name of the primary key
+        lstOrderList.DataValueField = "OrderId";
+        //set the name of the field to display
+        lstOrderList.DataTextField = "ProductId";
+        //bind the data to the list
+        lstOrderList.DataBind();
     }
 }
