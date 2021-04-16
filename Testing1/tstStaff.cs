@@ -200,7 +200,7 @@ namespace Testing1
 
         }
 
-        public void TestDateOfBirth()
+        public void TestDateOfBirthFound()
 
         {
             //create an instance of the class we want to create
@@ -222,7 +222,7 @@ namespace Testing1
             Assert.IsTrue(OK);
         }
 
-        public void StaffFirstName()
+        public void StaffFirstNameFound()
 
         {
             //create an instance of the class we want to create
@@ -244,7 +244,7 @@ namespace Testing1
             Assert.IsTrue(OK);
         }
 
-        public void StaffLastName()
+        public void StaffLastNameFound()
 
         {
             //create an instance of the class we want to create
@@ -266,7 +266,7 @@ namespace Testing1
             Assert.IsTrue(OK);
         }
 
-        public void Gender()
+        public void GenderFound()
 
         {
             //create an instance of the class we want to create
@@ -288,7 +288,7 @@ namespace Testing1
             Assert.IsTrue(OK);
         }
 
-        public void PhoneNo()
+        public void PhoneNoFound()
 
         {
             //create an instance of the class we want to create
@@ -310,7 +310,7 @@ namespace Testing1
             Assert.IsTrue(OK);
         }
 
-        public void NINo()
+        public void NINoFound()
 
         {
             //create an instance of the class we want to create
@@ -331,7 +331,7 @@ namespace Testing1
             //test to see that the result is correct 
             Assert.IsTrue(OK);
         }
-        public void Address()
+        public void AddressFound()
 
         {
             //create an instance of the class we want to create
@@ -353,7 +353,7 @@ namespace Testing1
             Assert.IsTrue(OK);
         }
 
-        public void PostCode()
+        public void PostCodeFound()
 
         {
             //create an instance of the class we want to create
@@ -375,7 +375,7 @@ namespace Testing1
             Assert.IsTrue(OK);
         }
 
-        public void Citizen()
+        public void CitizenFound()
 
         {
             //create an instance of the class we want to create

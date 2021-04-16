@@ -155,7 +155,7 @@ namespace ClassLibrary
             }
         }
 
-        public bool Find(int staffID)
+        public bool Find(int StaffID)
         {
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
@@ -187,6 +187,21 @@ namespace ClassLibrary
                 //return false indicating a problem
                 return false;
             }
+        }
+
+        // fuction for the public validation method
+        public string Valid(string StaffFirstName,
+                            string StaffLastName,
+                            string Gender,
+                            string DateOfBirth,
+                            string NiNo,
+                            string PhoneNo,
+                            string Address,
+                            string PostCode)
+        ///this function accepts 8 parameters for validation 
+        ///the function returns a string containing any error message
+        ///if no errors forund then a blank string is returned
+        {
         }
     }
 }

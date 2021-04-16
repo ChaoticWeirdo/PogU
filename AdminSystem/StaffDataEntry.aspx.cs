@@ -59,8 +59,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtPhoneNo.Text = AnStaff.PhoneNo;
             txtAddress.Text = AnStaff.Address;
             txtPostCode.Text = AnStaff.PostCode;
-
-
+        }
+        else
+        {
+            txtStaffID.Text = "No Staff with that ID";
         }
     }
 }
