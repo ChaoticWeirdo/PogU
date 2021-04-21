@@ -7,6 +7,16 @@ namespace Testing1
     [TestClass]
     public class tstStaff
     {
+        //good test data 
+        //create some test data to pass to the method 
+        string StaffFirstName = "Lucy";
+        string StaffLastName = "Williams";
+        string Gender = "Female";
+        string DateOfBirth = DateTime.Now.Date.ToString();
+        string NINo = "EE586151";
+        string PhoneNo = "07472219382";
+        string Address = "lime wood av";
+        string PostCode = "CT216PQ";
 
         [TestMethod]
         public void InstanceOK()
@@ -30,7 +40,8 @@ namespace Testing1
             Assert.AreEqual(AnStaff.Citizen, TestData);
         }
 
-        [TestMethod]
+        [TestMethod]
+
         public void DateOfBirthPropertyOK()
         {
             //create an instance of the class we want to create
@@ -43,8 +54,10 @@ namespace Testing1
             Assert.AreEqual(AnStaff.DateOfBirth, TestData);
         }
 
-        [TestMethod]
-        public void StaffIDPropertyOK()
+        [TestMethod]
+
+        public void StaffIDPropertyOK()
+
         {
             //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
@@ -56,7 +69,8 @@ namespace Testing1
             Assert.AreEqual(AnStaff.StaffID, TestData);
         }
 
-        [TestMethod]
+        [TestMethod]
+
         public void PostCodePropertyOK()
 
         {
@@ -70,7 +84,8 @@ namespace Testing1
             Assert.AreEqual(AnStaff.PostCode, TestData);
         }
 
-        [TestMethod]
+        [TestMethod]
+
         public void AddressPropertyOK()
 
         {
@@ -85,7 +100,8 @@ namespace Testing1
 
         }
 
-        [TestMethod]
+        [TestMethod]
+
         public void PhoneNoPropertyOK()
 
         {
@@ -100,7 +116,8 @@ namespace Testing1
 
         }
 
-        [TestMethod]
+        [TestMethod]
+
         public void NINoPropertyOK()
 
         {
@@ -115,7 +132,8 @@ namespace Testing1
 
         }
 
-        [TestMethod]
+        [TestMethod]
+
         public void GenderPropertyOK()
 
         {
@@ -130,7 +148,8 @@ namespace Testing1
 
         }
 
-        [TestMethod]
+        [TestMethod]
+
         public void StaffLastNamePropertyOK()
 
         {
@@ -145,7 +164,8 @@ namespace Testing1
 
         }
 
-        [TestMethod]
+        [TestMethod]
+
         public void StaffFirstNamePropertyOK()
 
         {
@@ -160,7 +180,22 @@ namespace Testing1
 
         }
 
-        [TestMethod]
+        [TestMethod]
+
+        public void ValidMethodOK()
+        {
+            //create an instance of the class we want to create 
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message 
+            String Error = "";
+            //invoke the method
+            Error = AnStaff.Valid(StaffFirstName, StaffLastName, Gender, DateOfBirth, NINo, PhoneNo, Address, PostCode);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }[dbo].[tblStaff]
+
+        [TestMethod]
+
         public void FindMethodOK()
 
         {
