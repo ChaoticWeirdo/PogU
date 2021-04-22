@@ -202,6 +202,33 @@ namespace ClassLibrary
         ///the function returns a string containing any error message
         ///if no errors forund then a blank string is returned
         {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable to store date values 
+            DateTime DateTemp;
+            // if the StaffFirstName is blank
+            if (StaffFirstName.Length == 0)
+            {
+                //record the error 
+                Error = Error + " first name may not be blank:";
+            }
+            try
+            {
+                //copy the date of birth value to the dateTemp variable
+                DateTemp = Convert.ToDateTime(DateOfBirth);
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error 
+                    Error = Error + "The date cannot be in the future :";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "the date was not a valid date :";
+            }     
+            //return any error messages 
+            return Error;
         }
     }
 }
