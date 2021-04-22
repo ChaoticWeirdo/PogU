@@ -182,20 +182,6 @@ namespace Testing1
 
         [TestMethod]
 
-        public void ValidMethodOK()
-        {
-            //create an instance of the class we want to create 
-            clsStaff AnStaff = new clsStaff();
-            //string variable to store any error message 
-            String Error = "";
-            //invoke the method
-            Error = AnStaff.Valid(StaffFirstName, StaffLastName, Gender, DateOfBirth, NINo, PhoneNo, Address, PostCode);
-            //test to see that the result is correct 
-            Assert.AreEqual(Error, "");
-        }[dbo].[tblStaff]
-
-        [TestMethod]
-
         public void FindMethodOK()
 
         {
@@ -431,5 +417,238 @@ namespace Testing1
             //test to see that the result is correct 
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+
+        public void ValidMethodOK()
+        {
+            //create an instance of the class we want to create 
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message 
+            String Error = "";
+            //invoke the method
+            Error = AnStaff.Valid(StaffFirstName, StaffLastName, Gender, DateOfBirth, NINo, PhoneNo, Address, PostCode);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+
+        public void StaffFirstNameMinLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message 
+            String Error = "";
+            //create some test data to pass to the method
+            string StaffFirstName = "";
+            //invoke the method
+            Error = AnStaff.Valid(StaffFirstName, StaffLastName, Gender, DateOfBirth, NINo, PhoneNo, Address, PostCode);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+        public void StaffFirstNameMin()
+
+        {
+
+            //create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string StaffFirstName = "a"; //this should be ok
+            //invoke the method
+            Error = AnStaff.Valid(StaffFirstName, StaffLastName, Gender, DateOfBirth, NINo, PhoneNo, Address, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        public void StaffFirstNameMinPlusOne()
+
+        {
+
+            //create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string StaffFirstName = "aa"; //this should be ok
+            //invoke the method
+            Error = AnStaff.Valid(StaffFirstName, StaffLastName, Gender, DateOfBirth, NINo, PhoneNo, Address, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        /*
+        [TestMethod]
+
+        public void StaffFirstNameMaxLessOne()
+
+        {
+
+            //create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string StaffFirstName = "aaaaa"; //this should be ok
+            //invoke the method
+            Error = AnStaff.Valid(StaffFirstName, StaffLastName, Gender, DateOfBirth, NINo, PhoneNo, Address, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+
+        }
+        
+
+        public void StaffFirstNameMax()
+
+        {
+
+            //create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string StaffFirstName = "aaaaaaa"; //this should be ok
+            //invoke the method
+            Error = AnStaff.Valid(StaffFirstName, StaffLastName, Gender, DateOfBirth, NINo, PhoneNo, Address, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        */
+
+        public void StaffFirstNameMid()
+
+        {
+
+            //create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string StaffFirstName = "aaaa"; //this should be ok
+            //invoke the method
+            Error = AnStaff.Valid(StaffFirstName, StaffLastName, Gender, DateOfBirth, NINo, PhoneNo, Address, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+
+        public void DateOfBirthExtremeMin()
+        {
+            //create an instance of the class we want to create 
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message 
+            String Error = "";
+            //create some test data to pass to the method
+            DateTime TestDate;
+            // set the date to todays date 
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years 
+            TestDate = TestDate.AddYears(100);
+            // change the date to whatever the date is less 100 years 
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AnStaff.Valid(StaffFirstName, StaffLastName, Gender, DateOfBirth, NINo, PhoneNo, Address, PostCode);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+        public void DateOfBirthMinLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message 
+            String Error = "";
+            //create some test data to pass to the method
+            DateTime TestDate;
+            // set the date to todays date 
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years 
+            TestDate = TestDate.AddYears(1);
+            // change the date to whatever the date is less 100 years 
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AnStaff.Valid(StaffFirstName, StaffLastName, Gender, DateOfBirth, NINo, PhoneNo, Address, PostCode);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+        public void DateOfBirthMin()
+        {
+            //create an instance of the class we want to create 
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message 
+            String Error = "";
+            //create some test data to pass to the method
+            DateTime TestDate;
+            // set the date to todays date 
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years 
+            TestDate = TestDate.AddYears(-16);
+            // change the date to whatever the date is less 100 years 
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AnStaff.Valid(StaffFirstName, StaffLastName, Gender, DateOfBirth, NINo, PhoneNo, Address, PostCode);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+        public void DateOfBirthMinPlusOne()
+        {
+            //create an instance of the class we want to create 
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message 
+            String Error = "";
+            //create some test data to pass to the method
+            DateTime TestDate;
+            // set the date to todays date 
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years 
+            TestDate = TestDate.AddYears(-17);
+            // change the date to whatever the date is less 100 years 
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AnStaff.Valid(StaffFirstName, StaffLastName, Gender, DateOfBirth, NINo, PhoneNo, Address, PostCode);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+        public void DateOfBirthExtremeMax()
+        {
+            //create an instance of the class we want to create 
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message 
+            String Error = "";
+            //create some test data to pass to the method
+            DateTime TestDate;
+            // set the date to todays date 
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years 
+            TestDate = TestDate.AddYears(-116);
+            // change the date to whatever the date is less 100 years 
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AnStaff.Valid(StaffFirstName, StaffLastName, Gender, DateOfBirth, NINo, PhoneNo, Address, PostCode);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+        public void DateOfBirthInvalidData()
+        {
+            //create an instance of the class we want to create 
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message 
+            String Error = "";
+            //set the DateOfBirth to a non date value 
+            string DateOfBirth = "this is not a date!";
+            //invoke method
+            Error = AnStaff.Valid(StaffFirstName, StaffLastName, Gender, DateOfBirth, NINo, PhoneNo, Address, PostCode);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
     }
+    
 }
