@@ -15,25 +15,43 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void btnOk_Click(object sender, EventArgs e)
     {
+
         //create a new instance of clsStaff
         clsStaff AnStaff = new clsStaff();
         //capture the first name
-        AnStaff.StaffFirstName = txtStaffFirstName.Text;
-        AnStaff.StaffLastName = txtStaffLastName.Text;
-        AnStaff.Gender = txtGender.Text;
-        AnStaff.DateOfBirth = DateTime.Parse(txtDateOfBirth.Text);
-        AnStaff.StaffID = int.Parse(txtStaffID.Text);
-        AnStaff.NINo = txtNINo.Text;
-        AnStaff.PhoneNo = txtPhoneNo.Text;
-        AnStaff.Address = txtAddress.Text;
-        AnStaff.PostCode = txtPostCode.Text;
-        // store the staff in the session object
-        Session["AnStaff"] = AnStaff;
-        // navigate to the viewer page
-        Response.Redirect("StaffViewer.aspx");
+        string StaffFirstName = txtStaffFirstName.Text;
+        string StaffLastName = txtStaffLastName.Text;
+        string Gender = txtGender.Text;
+        string DateOfBirth = txtDateOfBirth.Text;
+        string NINo = txtNINo.Text;
+        string PhoneNo = txtPhoneNo.Text;
+        string Address = txtAddress.Text;
+        string PostCode = txtPostCode.Text;
+        string Error = "";
+        Error = AnStaff.Valid(StaffFirstName, StaffLastName, Gender, DateOfBirth, NINo, PhoneNo, Address, PostCode);
+        if (Error == "")
+        {
+            //capture the first name
+            AnStaff.StaffFirstName = txtStaffFirstName.Text;
+            AnStaff.StaffLastName = txtStaffLastName.Text;
+            AnStaff.Gender = txtGender.Text;
+            AnStaff.DateOfBirth = Convert.ToDateTime( DateOfBirth);
+            AnStaff.StaffID = int.Parse(txtStaffID.Text);
+            AnStaff.NINo = txtNINo.Text;
+            AnStaff.PhoneNo = txtPhoneNo.Text;
+            AnStaff.Address = txtAddress.Text;
+            AnStaff.PostCode = txtPostCode.Text;
+            // store the staff in the session object
+            Session["AnStaff"] = AnStaff;
+            // navigate to the viewer page
+            Response.Redirect("StaffViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
     }
-
-
 
     protected void BtnFind_Click(object sender, EventArgs e)
     {

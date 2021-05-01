@@ -212,6 +212,19 @@ namespace ClassLibrary
                 //record the error 
                 Error = Error + " first name may not be blank:";
             }
+            //if the First Name is greater than 50 characters
+            if (StaffFirstName.Length > 50)
+            {
+                //record the error
+                Error = Error + "The First Name must be less than 50 characters : ";
+            }
+
+            if (StaffLastName.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Last Name must be less than 50 characters : ";
+            }
+
             try
             {
                 //copy the date of birth value to the dateTemp variable
@@ -226,7 +239,52 @@ namespace ClassLibrary
             {
                 //record the error
                 Error = Error + "the date was not a valid date :";
-            }     
+            }
+            if (StaffLastName.Length == 0)
+            {
+                //record the error 
+                Error = Error + " Last name may not be blank:";
+            }
+            //is the post code blank
+            if (PostCode.Length == 0)
+            {
+                //record the error
+                Error = Error + "The post code may not be blank : ";
+            }
+            //if the post code is too long
+            if (PostCode.Length > 9)
+            {
+                //record the error
+                Error = Error + "The post code must be less than 9 characters : ";
+            }
+
+            //if the gender is too long
+            if (Gender.Length > 6)
+            {
+                //record the error
+                Error = Error + "The gender must be less than 6 characters : ";
+            }
+            //if the Address is too long
+            if (Address.Length > 50)
+            {
+                //record the error
+                Error = Error + "The address must be less than 50 characters : ";
+            }
+
+            //if the NINo is too long
+            if (NINo.Length > 9)
+            {
+                //record the error
+                Error = Error + "The NINo must be less than 9 characters : ";
+            }
+
+            //if the PhoneNo is too long
+            if (PhoneNo.Length > 11)
+            {
+                //record the error
+                Error = Error + "The PhoneNo must be less than 11 characters : ";
+            }
+
             //return any error messages 
             return Error;
         }
