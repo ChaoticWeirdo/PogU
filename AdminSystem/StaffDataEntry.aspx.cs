@@ -32,19 +32,19 @@ public partial class _1_DataEntry : System.Web.UI.Page
         if (Error == "")
         {
             //capture the first name
-            AnStaff.StaffFirstName = txtStaffFirstName.Text;
-            AnStaff.StaffLastName = txtStaffLastName.Text;
-            AnStaff.Gender = txtGender.Text;
+            AnStaff.StaffFirstName = StaffFirstName;
+            AnStaff.StaffLastName = StaffLastName;
+            AnStaff.Gender = Gender;
             AnStaff.DateOfBirth = Convert.ToDateTime( DateOfBirth);
-            AnStaff.StaffID = int.Parse(txtStaffID.Text);
-            AnStaff.NINo = txtNINo.Text;
-            AnStaff.PhoneNo = txtPhoneNo.Text;
-            AnStaff.Address = txtAddress.Text;
-            AnStaff.PostCode = txtPostCode.Text;
-            // store the staff in the session object
-            Session["AnStaff"] = AnStaff;
-            // navigate to the viewer page
-            Response.Redirect("StaffViewer.aspx");
+            AnStaff.NINo = NINo;
+            AnStaff.PhoneNo = PhoneNo;
+            AnStaff.Address = Address;
+            AnStaff.PostCode = PostCode;
+            AnStaff.Citizen = chkCitizen.Checked;
+            clsStaffCollection StaffList = new clsStaffCollection();
+            StaffList.ThisStaff = AnStaff;
+            StaffList.Add();
+            Response.Redirect("StaffList.aspx");
         }
         else
         {
