@@ -16,12 +16,9 @@ namespace ClassLibrary
         private string mPostCode;
         private Boolean mCitizen;
 
-        public clsStaff()
-        {
-        }
 
         public bool Citizen
-        {
+          {
             get
             {
                 //return the private data 
@@ -33,6 +30,7 @@ namespace ClassLibrary
                 mCitizen = value;
             }
         }
+
         public DateTime DateOfBirth
 
         {
