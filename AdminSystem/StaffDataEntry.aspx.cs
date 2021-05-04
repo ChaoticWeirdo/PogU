@@ -8,11 +8,41 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+
+    //variable to store the primary key with page level scope 
+    Int32 StaffID;
     protected void Page_Load(object sender, EventArgs e)
     {
+        //get the number of the address to be processed
+        StaffID = Convert.ToInt32(Session["StaffID"]);
+        if (IsPostBack == false)
+        {
+            //if this is not a new record
+            if (StaffID != 1)
+            {
+                //display the current data for the new record
+                DisplayStaff();
+            }
 
+        }
     }
 
+    void DisplayStaff()
+    {
+        clsStaffCollection StaffList = new clsStaffCollection();
+        StaffList.ThisStaff.Find(StaffID);
+        txtStaffID.Text = StaffList.ThisStaff.StaffID.ToString();
+        txtStaffFirstName.Text = StaffList.ThisStaff.StaffFirstName.ToString();
+        txtStaffLastName.Text = StaffList.ThisStaff.StaffLastName.ToString();
+        txtGender.Text = StaffList.ThisStaff.Gender.ToString();
+        txtDateOfBirth.Text = StaffList.ThisStaff.DateOfBirth.ToString();
+        txtNINo.Text = StaffList.ThisStaff.NINo.ToString();
+        txtPhoneNo.Text = StaffList.ThisStaff.PhoneNo.ToString();
+        txtAddress.Text = StaffList.ThisStaff.Address.ToString();
+        txtPostCode.Text = StaffList.ThisStaff.PostCode.ToString();
+        chkCitizen.Checked = StaffList.ThisStaff.Citizen;
+
+    }
     protected void btnOk_Click(object sender, EventArgs e)
     {
 
@@ -42,8 +72,26 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnStaff.PostCode = PostCode;
             AnStaff.Citizen = chkCitizen.Checked;
             clsStaffCollection StaffList = new clsStaffCollection();
-            StaffList.ThisStaff = AnStaff;
-            StaffList.Add();
+
+            //if this is a new record i.e. StaffID = -1 then add the data
+            if (StaffID == -1)
+            {
+                // set the ThisStaff property 
+                StaffList.ThisStaff = AnStaff;
+                //add the new record 
+                StaffList.Add();
+            }
+            //otherwise it must be an update 
+            else
+            {
+                //find the record to update 
+                StaffList.ThisStaff.Find(StaffID);
+                //set the ThisStaff property
+                StaffList.ThisStaff = AnStaff;
+                //update the record 
+                StaffList.Update();
+            }
+            
             Response.Redirect("StaffList.aspx");
         }
         else
@@ -82,5 +130,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         {
             txtStaffID.Text = "No Staff with that ID";
         }
+
+
     }
 }

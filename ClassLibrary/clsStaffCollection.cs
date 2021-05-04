@@ -54,7 +54,27 @@ namespace ClassLibrary
             DB.AddParameter("@PostCode", mThisStaff.PostCode);
             DB.AddParameter("@Citizen", mThisStaff.Citizen);
             //execute the quiery returning the primary key value 
-            return DB.Execute("sproc_tblStaff_Inser");
+            return DB.Execute("sproc_tblStaff_Insert");
+        }
+
+        public void Update()
+        {
+            // adds new record to the database based on the values of mThisStaff
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the paramenters for the procedure
+            DB.AddParameter("@StaffiD", mThisStaff.StaffID);
+            DB.AddParameter("@StaffFirstName", mThisStaff.StaffFirstName);
+            DB.AddParameter("@StaffLastName", mThisStaff.StaffLastName);
+            DB.AddParameter("@Gender", mThisStaff.Gender);
+            DB.AddParameter("@DateOfBirth", mThisStaff.DateOfBirth);
+            DB.AddParameter("@NINo", mThisStaff.NINo);
+            DB.AddParameter("@PhoneNo", mThisStaff.PhoneNo);
+            DB.AddParameter("@Address", mThisStaff.Address);
+            DB.AddParameter("@PostCode", mThisStaff.PostCode);
+            DB.AddParameter("@Citizen", mThisStaff.Citizen);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_Update");
         }
 
 

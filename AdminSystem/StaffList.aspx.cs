@@ -20,8 +20,8 @@ public partial class _1_List : System.Web.UI.Page
     void DisplayStaff()
     {
        
-        clsStaffCollection Address = new clsStaffCollection();
-        lstStaffList.DataSource = Address.StaffList;
+        clsStaffCollection Staff = new clsStaffCollection();
+        lstStaffList.DataSource = Staff.StaffList;
         lstStaffList.DataValueField = "StaffID";
         lstStaffList.DataTextField = "PostCode";
         lstStaffList.DataBind();
@@ -35,5 +35,26 @@ public partial class _1_List : System.Web.UI.Page
         Session["StaffID"] = -1;
         //redirect to the data entry page 
         Response.Redirect("StaffDataEntry.aspx");
+    }
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        //var to store the primary key value of the record to be edited
+        Int32 StaffID;
+        //if a record has been selected from the list
+        if (lstStaffList.SelectedIndex != -1)
+        {
+            //get the primary key value of the record to edit
+            StaffID = Convert.ToInt32(lstStaffList.SelectedValue);
+            //store the data in the session object
+            Session["StaffID"] = StaffID;
+            //redirect to the edit page
+            Response.Redirect("StaffDataEntry.aspx");
+        }
+        else //if no record has been selected
+        {
+            //display an error
+            lblError.Text = "Please select a record from the list to edit";
+        }
     }
 }

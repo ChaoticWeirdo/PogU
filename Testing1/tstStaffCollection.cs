@@ -134,5 +134,53 @@ namespace Testing1
             //tyest to see that the two values are the same 
             Assert.AreEqual(AllStaff.ThisStaff, TestItem);
         }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //create the test data
+            clsStaff TestItem = new clsStaff();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set it's propertites
+            TestItem.Citizen = true;
+            TestItem.StaffID = 1;
+            TestItem.StaffFirstName = "Lucy";
+            TestItem.StaffLastName = "James";
+            TestItem.Gender = "Female";
+            TestItem.DateOfBirth = DateTime.Now.Date;
+            TestItem.NINo = "AA 12 34 56 C";
+            TestItem.PhoneNo = "07038320312";
+            TestItem.Address = "Grove road";
+            TestItem.PostCode = "MK438SS";
+            //set ThisOrder to the test data
+            AllStaff.ThisStaff = TestItem;
+            //add the record
+            PrimaryKey = AllStaff.Add();
+            //set the primary key of the test data
+            TestItem.StaffID = PrimaryKey;
+            //modify the test data.
+            TestItem.Citizen = false;
+            TestItem.StaffID = 3;
+            TestItem.StaffFirstName = "Rajesh";
+            TestItem.StaffLastName = "Kaheed";
+            TestItem.Gender = "Male";
+            TestItem.DateOfBirth = DateTime.Now.Date;
+            TestItem.NINo = "BX 64 44 42 D";
+            TestItem.PhoneNo = "07514 537700";
+            TestItem.Address = "lewisham way";
+            TestItem.PostCode = "EN6 3AQ";
+            //set the record based on the new test data
+            AllStaff.ThisStaff = TestItem;
+            //update the record
+            AllStaff.Update();
+            //find the record
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            //test to see ThisOrder matches the test data
+            Assert.AreEqual(AllStaff.ThisStaff, TestItem);
+        }
+
     }
 }
