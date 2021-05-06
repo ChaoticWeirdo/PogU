@@ -38,6 +38,18 @@ namespace ClassLibrary
             }
         }
 
+        //constructor for the class
+        public clsStaffCollection()
+        {
+            //object for data connection 
+            clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure 
+            DB.Execute("sproc_tblStaff_SelectAll");
+            //populate the array list with the data table 
+            PopulateArray(DB);
+
+        }
+
         public int Add()
         {
             // adds new record to the database based on the values of mThisStaff
@@ -77,18 +89,6 @@ namespace ClassLibrary
             DB.Execute("sproc_tblStaff_Update");
         }
 
-        public void DeleteMethodOK()
-        {
-            //deletes the record pointed to by thisOrder
-            //connect to the database
-            clsDataConnection DB = new clsDataConnection();
-            //set the parameters for the stored procedure
-            DB.AddParameter("@StaffID", mThisStaff.StaffID);
-            //execute the stored procedure
-            DB.Execute("sproc_tblStaff_Delete");
-
-        }
-
 
 
         public clsStaff ThisStaff
@@ -107,21 +107,6 @@ namespace ClassLibrary
 
 
 
-        //constructor for the class
-        public clsStaffCollection()
-        {
-            //var for the index
-            Int32 Index = 0;
-            //var to store the record count
-            Int32 RecordCount = 0;
-            //object for data connection 
-            clsStaffCollection DB = new clsStaffCollection();
-            //execute the stored procedure 
-            DB.Execute("sproc_tblStaff_SelectAll");
-            //populate the array list with the data table 
-            PopulateArray(DB);
-
-        }
 
         public void ReportByPostCode(string PostCode)
         {
@@ -167,6 +152,17 @@ namespace ClassLibrary
                 //point at the next record 
                 Index++;
             }
+        }
+
+        public void Delete()
+        {
+            //deletes the record pointed to by thisOrder
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@StaffID", mThisStaff.StaffID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_Delete");
         }
     }
 }
