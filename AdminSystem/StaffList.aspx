@@ -13,6 +13,15 @@
             <br />
             <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
             <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />
+            <asp:Button ID="lblDelete" runat="server" OnClick="lblDelete_Click" Text="Delete" />
+            <br />
+            <br />
+            Enter a Post Code
+            <asp:TextBox ID="txtFilter" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Button ID="btnApply" runat="server" OnClick="btnApply_Click" Text="Apply" />
+            <asp:Button ID="BtnClear" runat="server" OnClick="BtnClear_Click" Text="Clear" />
             <br />
             <br />
             <asp:Label ID="lblError" runat="server"></asp:Label>
