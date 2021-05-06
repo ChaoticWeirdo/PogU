@@ -96,11 +96,11 @@ public partial class _1_List : System.Web.UI.Page
     protected void BtnClear_Click(object sender, EventArgs e)
     {
         //create an instance of the Staff collection
-        clsStaffCollection Orders = new clsStaffCollection();
+        clsStaffCollection Staff = new clsStaffCollection();
         Staff.ReportByPostCode("");
         //clear any existing filler to tidy up the interface 
         txtFilter.Text = "";
-        lstStaffList.DataSource = Orders.StaffList;
+        lstStaffList.DataSource = Staff.StaffList;
         //set the name of the primart key
         lstStaffList.DataValueField = "StaffID";
         //set the name of the field to display

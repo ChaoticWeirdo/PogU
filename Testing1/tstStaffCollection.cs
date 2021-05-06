@@ -130,7 +130,7 @@ namespace Testing1
             //set the primary key of the test data 
             TestItem.StaffID = PrimaryKey;
             //find the record
-            AllStaff.ThisStaff.Fibd(PrimaryKey);
+            AllStaff.ThisStaff.Find(PrimaryKey);
             //tyest to see that the two values are the same 
             Assert.AreEqual(AllStaff.ThisStaff, TestItem);
         }
@@ -234,7 +234,7 @@ namespace Testing1
         public void ReportByPostCodeNoneFound()
         {
             //create an instance of the filtered data
-            clsStaffCollection AllStaff = new clsStaffCollection();
+            clsStaffCollection FilteredPostCode = new clsStaffCollection();
             //apply a Post Code that doesn't exist
             FilteredPostCode.ReportByPostCode("xxx xxx");
             //test to see that there are no records
@@ -244,7 +244,7 @@ namespace Testing1
         public void ReportByProductIdTestDataFound()
         {
             //create an instance of the filtered data
-            clsStaffCollection AllStaff = new clsStaffCollection();
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
             //var to store outcome
             Boolean OK = true;
             //apply a PostCode that doesn't exist
@@ -253,12 +253,12 @@ namespace Testing1
             if (FilteredStaff.Count == 2)
             {
                 //check that the first record is ID 5
-                if (FilteredStaff.StaffList[0].PostCode != 5)
+                if (FilteredStaff.StaffList[0].StaffID != 5)
                 {
                     OK = false;
                 }
                 //check that the first record is ID 6
-                if (FilteredStaff.StaffList[1].PostCode != 6)
+                if (FilteredStaff.StaffList[1].StaffID != 6)
                 {
                     OK = false;
                 }
