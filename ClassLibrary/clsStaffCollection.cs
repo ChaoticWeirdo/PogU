@@ -77,6 +77,19 @@ namespace ClassLibrary
             DB.Execute("sproc_tblStaff_Update");
         }
 
+        public void DeleteMethodOK()
+        {
+            //deletes the record pointed to by thisOrder
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@StaffID", mThisStaff.StaffID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_Delete");
+
+        }
+
+
 
         public clsStaff ThisStaff
         {
@@ -92,7 +105,7 @@ namespace ClassLibrary
             }
         }
 
-                
+
 
         //constructor for the class
         public clsStaffCollection()
@@ -105,8 +118,35 @@ namespace ClassLibrary
             clsStaffCollection DB = new clsStaffCollection();
             //execute the stored procedure 
             DB.Execute("sproc_tblStaff_SelectAll");
+            //populate the array list with the data table 
+            PopulateArray(DB);
+
+        }
+
+        public void ReportByPostCode(string PostCode)
+        {
+            //filters the records based on a full or partial PostCode
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //send the PostCode parameter to the database
+            DB.AddParameter("@PostCode", PostCode);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_FilterByPostCode");
+            //populate the array list with the data table 
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            //populates the array list based on the data table in the parameter DB
+            //var for the index
+            Int32 Index = 0;
+            //vare to store the record count
+            Int32 RecordCount;
             //get the count of records
             RecordCount = DB.Count;
+            //clear the private array list
+            mStaffList = new List<clsStaff>();
             //while there are records to process
             while (Index < RecordCount)
             {
@@ -127,9 +167,6 @@ namespace ClassLibrary
                 //point at the next record 
                 Index++;
             }
-                
         }
-
-
     }
 }
