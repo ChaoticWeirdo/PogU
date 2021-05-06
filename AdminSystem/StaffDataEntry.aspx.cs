@@ -32,14 +32,14 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsStaffCollection StaffList = new clsStaffCollection();
         StaffList.ThisStaff.Find(StaffID);
         txtStaffID.Text = StaffList.ThisStaff.StaffID.ToString();
-        txtStaffFirstName.Text = StaffList.ThisStaff.StaffFirstName.ToString();
-        txtStaffLastName.Text = StaffList.ThisStaff.StaffLastName.ToString();
-        txtGender.Text = StaffList.ThisStaff.Gender.ToString();
+        txtStaffFirstName.Text = StaffList.ThisStaff.StaffFirstName;
+        txtStaffLastName.Text = StaffList.ThisStaff.StaffLastName;
+        txtGender.Text = StaffList.ThisStaff.Gender;
         txtDateOfBirth.Text = StaffList.ThisStaff.DateOfBirth.ToString();
-        txtNINo.Text = StaffList.ThisStaff.NINo.ToString();
-        txtPhoneNo.Text = StaffList.ThisStaff.PhoneNo.ToString();
-        txtAddress.Text = StaffList.ThisStaff.Address.ToString();
-        txtPostCode.Text = StaffList.ThisStaff.PostCode.ToString();
+        txtNINo.Text = StaffList.ThisStaff.NINo;
+        txtPhoneNo.Text = StaffList.ThisStaff.PhoneNo;
+        txtAddress.Text = StaffList.ThisStaff.Address;
+        txtPostCode.Text = StaffList.ThisStaff.PostCode;
         chkCitizen.Checked = StaffList.ThisStaff.Citizen;
 
     }

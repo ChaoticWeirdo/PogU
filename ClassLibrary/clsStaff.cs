@@ -268,6 +268,7 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The address must be less than 50 characters : ";
             }
+            
 
             //if the NINo is too long
             if (NINo.Length > 9)
@@ -275,6 +276,7 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The NINo must be less than 9 characters : ";
             }
+            
 
             //if the PhoneNo is too long
             if (PhoneNo.Length > 11)
