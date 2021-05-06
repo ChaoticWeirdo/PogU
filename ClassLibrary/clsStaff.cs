@@ -250,20 +250,20 @@ namespace ClassLibrary
                 Error = Error + "The post code may not be blank : ";
             }
             //if the post code is too long
-            if (PostCode.Length > 9)
+            if (PostCode.Length >= 9)
             {
                 //record the error
                 Error = Error + "The post code must be less than 9 characters : ";
             }
 
             //if the gender is too long
-            if (Gender.Length > 6)
+            if (Gender.Length >= 6)
             {
                 //record the error
                 Error = Error + "The gender must be less than 6 characters : ";
             }
             //if the Address is too long
-            if (Address.Length > 50)
+            if (Address.Length >= 50)
             {
                 //record the error
                 Error = Error + "The address must be less than 50 characters : ";
