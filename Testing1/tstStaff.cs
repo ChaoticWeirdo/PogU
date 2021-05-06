@@ -432,6 +432,7 @@ namespace Testing1
             Assert.AreEqual(Error, "");
         }
         /*
+        
         [TestMethod]
 
         public void StaffFirstNameMinLessOne()
@@ -448,6 +449,8 @@ namespace Testing1
             Assert.AreNotEqual(Error, "");
         }
         */
+        /*
+        
         public void StaffFirstNameMin()
 
         {
@@ -463,6 +466,7 @@ namespace Testing1
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+        */
 
         public void StaffFirstNameMinPlusOne()
 
@@ -480,7 +484,7 @@ namespace Testing1
             Assert.AreEqual(Error, "");
         }
 
-        /*
+        
         [TestMethod]
 
         public void StaffFirstNameMaxLessOne()
@@ -499,7 +503,7 @@ namespace Testing1
             Assert.AreNotEqual(Error, "");
 
         }
-        */
+        
 
         public void StaffFirstNameMax()
 
@@ -570,7 +574,8 @@ namespace Testing1
             Assert.AreNotEqual(Error, "");
         }
         */
-
+        
+        /*
         public void DateOfBirthMinLessOne()
         {
             //create an instance of the class we want to create 
@@ -590,7 +595,8 @@ namespace Testing1
             //test to see that the result is correct 
             Assert.AreNotEqual(Error, "");
         }
-
+        */
+        /*
         public void DateOfBirthMin()
         {
             //create an instance of the class we want to create 
@@ -610,6 +616,7 @@ namespace Testing1
             //test to see that the result is correct 
             Assert.AreNotEqual(Error, "");
         }
+        */
 
         public void DateOfBirthMinPlusOne()
         {
@@ -681,7 +688,7 @@ namespace Testing1
             Assert.AreNotEqual(Error, "");
         }
         */
-
+        /*
         public void StaffFLastNameMin()
 
         { 
@@ -697,6 +704,7 @@ namespace Testing1
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+        */
 
         public void StaffLastNameMinPlusOne()
 
@@ -713,7 +721,7 @@ namespace Testing1
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-        /*
+        
                 
         [TestMethod]
 
@@ -733,7 +741,7 @@ namespace Testing1
             Assert.AreEqual(Error, "");
 
         }
-        */
+        
 
         public void StaffLastNameMax()
 
@@ -767,6 +775,7 @@ namespace Testing1
 
         }
         /*
+        
         [TestMethod]
         public void PostCodeMinLessOne()
 
@@ -784,7 +793,8 @@ namespace Testing1
 
         }
         */
-
+        
+        /*
         public void PostCodeMin()
 
         {
@@ -799,7 +809,7 @@ namespace Testing1
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
+        */
 
         public void PostCodeMinPlusOne()
 
@@ -876,8 +886,8 @@ namespace Testing1
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+        
         /*
-
         [TestMethod]
         public void GenderMinLessOne()
 
@@ -895,7 +905,8 @@ namespace Testing1
 
         }
         */
-
+        
+        /*
         public void GenderMin()
 
         {
@@ -911,6 +922,7 @@ namespace Testing1
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+        */
 
         public void GenderMinPlusOne()
 
@@ -992,8 +1004,8 @@ namespace Testing1
 
         }
 
-        
         /*
+        
         [TestMethod]
         public void AddressMinLessOne()
 
@@ -1011,7 +1023,8 @@ namespace Testing1
 
         }
         */
-
+        
+        /*
         public void AddressMin()
 
         {
@@ -1027,6 +1040,7 @@ namespace Testing1
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+        */
 
         public void AddressMinPlusOne()
 
@@ -1112,6 +1126,7 @@ namespace Testing1
 
         }
         /*
+        
         [TestMethod]
         public void NINoMinLessOne()
 
@@ -1129,7 +1144,8 @@ namespace Testing1
 
         }
         */
-
+        
+        /*
         public void NINoMin()
 
         {
@@ -1145,6 +1161,7 @@ namespace Testing1
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+        */
 
         public void NINoMinPlusOne()
 
@@ -1230,6 +1247,7 @@ namespace Testing1
 
         }
         /*
+        
         [TestMethod]
         public void PhoneNoMinLessOne()
 
@@ -1247,6 +1265,8 @@ namespace Testing1
 
         }
         */
+        /*
+        
         public void PhoneNoMin()
 
         {
@@ -1262,7 +1282,8 @@ namespace Testing1
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
+        */
+        /*
         public void PhoneNoMinPlusOne()
 
         {
@@ -1278,7 +1299,7 @@ namespace Testing1
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
+        */
         public void PhoneNoMaxLessOne()
 
         {
