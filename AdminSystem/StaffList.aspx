@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="StaffList.aspx.cs" Inherits="_1_List" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="StaffList.aspx.cs" Inherits="StaffList" %>
 
 <!DOCTYPE html>
 
@@ -13,7 +13,7 @@
             <br />
             <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
             <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />
-            <asp:Button ID="lblDelete" runat="server" OnClick="lblDelete_Click" Text="Delete" />
+            <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click1" Text="Delete" />
             <br />
             <br />
             Enter a Post Code

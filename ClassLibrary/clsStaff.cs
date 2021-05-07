@@ -204,20 +204,21 @@ namespace ClassLibrary
             String Error = "";
             //create a temporary variable to store date values 
             DateTime DateTemp;
+            
             // if the StaffFirstName is blank
             if (staffFirstName.Length == 0)
             {
                 //record the error 
                 Error = Error + " first name may not be blank:";
             }
-            //if the First Name is greater than 50 characters
-            if (staffFirstName.Length > 50)
+            //if the First Name is greater than 50 characters            
+            if (staffFirstName.Length >= 50)
             {
                 //record the error
                 Error = Error + "The First Name must be less than 50 characters : ";
             }
 
-            if (staffLastName.Length > 50)
+            if (staffLastName.Length >= 50)
             {
                 //record the error
                 Error = Error + "The Last Name must be less than 50 characters : ";
@@ -250,7 +251,7 @@ namespace ClassLibrary
                 Error = Error + "The post code may not be blank : ";
             }
             //if the post code is too long
-            if (postCode.Length >= 9)
+            if (postCode.Length > 9)
             {
                 //record the error
                 Error = Error + "The post code must be less than 9 characters : ";
@@ -271,7 +272,7 @@ namespace ClassLibrary
             
 
             //if the NINo is too long
-            if (nINo.Length > 9)
+            if (nINo.Length >= 9)
             {
                 //record the error
                 Error = Error + "The NINo must be less than 9 characters : ";
