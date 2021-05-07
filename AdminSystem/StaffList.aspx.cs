@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ClassLibrary;
 
-public partial class _1_List : System.Web.UI.Page
+public partial class StaffList : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -58,26 +58,6 @@ public partial class _1_List : System.Web.UI.Page
         }
     }
 
-    protected void lblDelete_Click(object sender, EventArgs e)
-    {
-        //var to store the primary key value of the record to be deleted
-        Int32 StaffID;
-        //if a record had been selected from the list
-        if (lstStaffList.SelectedIndex != 1)
-        {
-            //get the primary key value of the record to delete
-            StaffID = Convert.ToInt32(lstStaffList.SelectedValue);
-            //store the data in the session object
-            Session["StaffID"] = StaffID;
-            //redirecr to the delete page
-            Response.Redirect("DeleteStaff.aspx");
-        }
-        else //if no record has been selected
-        {
-            //display
-            lblError.Text = "Please select a record from the list to delete";
-        }
-    }
 
     protected void btnApply_Click(object sender, EventArgs e)
     {
@@ -108,5 +88,28 @@ public partial class _1_List : System.Web.UI.Page
         //bind the data to the list
         lstStaffList.DataBind();
 
+    }
+
+
+
+    protected void btnDelete_Click1(object sender, EventArgs e)
+    {
+        //var to store the primary key value of the record to be deleted
+        Int32 StaffID;
+        //if a record had been selected from the list
+        if (lstStaffList.SelectedIndex != 1)
+        {
+            //get the primary key value of the record to delete
+            StaffID = Convert.ToInt32(lstStaffList.SelectedValue);
+            //store the data in the session object
+            Session["StaffID"] = StaffID;
+            //redirecr to the delete page
+            Response.Redirect("DeleteStaff.aspx");
+        }
+        else //if no record has been selected
+        {
+            //display
+            lblError.Text = "Please select a record from the list to delete";
+        }
     }
 }
