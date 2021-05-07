@@ -188,14 +188,14 @@ namespace ClassLibrary
         }
 
         // fuction for the public validation method
-        public string Valid(string StaffFirstName,
-                            string StaffLastName,
-                            string Gender,
-                            string DateOfBirth,
-                            string NiNo,
-                            string PhoneNo,
-                            string Address,
-                            string PostCode)
+        public string Valid(string staffFirstName,
+                            string staffLastName,
+                            string gender,
+                            string dateOfBirth,
+                            string nINo,
+                            string phoneNo,
+                            string address,
+                            string postCode)
         ///this function accepts 8 parameters for validation 
         ///the function returns a string containing any error message
         ///if no errors forund then a blank string is returned
@@ -205,19 +205,19 @@ namespace ClassLibrary
             //create a temporary variable to store date values 
             DateTime DateTemp;
             // if the StaffFirstName is blank
-            if (StaffFirstName.Length == 0)
+            if (staffFirstName.Length == 0)
             {
                 //record the error 
                 Error = Error + " first name may not be blank:";
             }
             //if the First Name is greater than 50 characters
-            if (StaffFirstName.Length > 50)
+            if (staffFirstName.Length > 50)
             {
                 //record the error
                 Error = Error + "The First Name must be less than 50 characters : ";
             }
 
-            if (StaffLastName.Length > 50)
+            if (staffLastName.Length > 50)
             {
                 //record the error
                 Error = Error + "The Last Name must be less than 50 characters : ";
@@ -226,7 +226,7 @@ namespace ClassLibrary
             try
             {
                 //copy the date of birth value to the dateTemp variable
-                DateTemp = Convert.ToDateTime(DateOfBirth);
+                DateTemp = Convert.ToDateTime(dateOfBirth);
                 if (DateTemp > DateTime.Now.Date)
                 {
                     //record the error 
@@ -238,32 +238,32 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "the date was not a valid date :";
             }
-            if (StaffLastName.Length == 0)
+            if (staffLastName.Length == 0)
             {
                 //record the error 
                 Error = Error + " Last name may not be blank:";
             }
             //is the post code blank
-            if (PostCode.Length == 0)
+            if (postCode.Length == 0)
             {
                 //record the error
                 Error = Error + "The post code may not be blank : ";
             }
             //if the post code is too long
-            if (PostCode.Length >= 9)
+            if (postCode.Length >= 9)
             {
                 //record the error
                 Error = Error + "The post code must be less than 9 characters : ";
             }
 
             //if the gender is too long
-            if (Gender.Length >= 6)
+            if (gender.Length >= 6)
             {
                 //record the error
                 Error = Error + "The gender must be less than 6 characters : ";
             }
             //if the Address is too long
-            if (Address.Length >= 50)
+            if (address.Length >= 50)
             {
                 //record the error
                 Error = Error + "The address must be less than 50 characters : ";
@@ -271,7 +271,7 @@ namespace ClassLibrary
             
 
             //if the NINo is too long
-            if (NINo.Length > 9)
+            if (nINo.Length > 9)
             {
                 //record the error
                 Error = Error + "The NINo must be less than 9 characters : ";
@@ -279,7 +279,7 @@ namespace ClassLibrary
             
 
             //if the PhoneNo is too long
-            if (PhoneNo.Length > 11)
+            if (phoneNo.Length > 11)
             {
                 //record the error
                 Error = Error + "The PhoneNo must be less than 11 characters : ";
